@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  font-family: source sans pro, sans-serif;
+}
+
+.main-page {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  height: 100vh;
+
+  &__footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+  }
+}

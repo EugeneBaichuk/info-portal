@@ -1,0 +1,46 @@
+@import "../../vars";  
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: auto;
+
+  &__logo {
+    color: $mainColor;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 1rem;
+  }
+
+  &__ul {
+    display: flex;
+  }
+
+  &__li {
+    margin: 0 1rem 0 0;
+    list-style: none;
+    color: $mainText;
+
+    &:hover {
+      color: $mainTextActive;
+      cursor: pointer;
+    }
+
+    &_active {
+      color: $mainTextActive;
+    }
+  }
+}
+
+

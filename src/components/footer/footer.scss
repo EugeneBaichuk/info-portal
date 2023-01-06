@@ -1,0 +1,21 @@
+@import "../../vars";  
+
+.footer {
+  color: $mainText;
+  background-color: rgb(243,243,243);
+  margin-top: 2.5rem;
+  padding: 1rem 0;
+  font-size: 12.8px;
+
+  &__logo {
+    color: $mainColor;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 1rem;
+  }
+
+  &__link {
+    color: $mainColor;
+  }
+}
+

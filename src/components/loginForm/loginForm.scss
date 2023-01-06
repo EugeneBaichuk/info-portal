@@ -1,0 +1,26 @@
+@import "../../vars";
+
+.login-form {
+  padding: 75px 0 0 0;
+  &__headline {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: $headerText;
+    margin-bottom: .5rem;
+  }
+
+  &__link {
+    color: $mainColor;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__margin-bot {
+    margin-bottom: 1rem;
+  }
+
+  &__form {
+    width: 500px;
+    margin: auto;
+  }
+}
