@@ -2,6 +2,7 @@
 
 .header {
   position: fixed;
+  z-index: 1;
   top: 0;
   right: 0;
   width: 100%;
@@ -30,12 +31,6 @@
   &__li {
     margin: 0 1rem 0 0;
     list-style: none;
-    color: $mainText;
-
-    &:hover {
-      color: $mainTextActive;
-      cursor: pointer;
-    }
 
     &_active {
       color: $mainTextActive;

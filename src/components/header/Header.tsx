@@ -1,19 +1,21 @@
 import './header.scss'
 //import Navigation from './Navigation/Navigation';
-import { Link } from 'react-router-dom';
+import { CustomLink } from '../customLink/CustomLink'
 
 export const Header = () => {
-  const nav = ["Home", "Sign In", "Sign Up"];
+  const nav = [{text:"Home", link: "home", id:1}, {text:"Sign In", link: "/", id:2}, {text:"Sign Up", link: "sign-up", id:3} ];
+  
 
   return (
     <header className='header'>
       <nav className='navbar'>
-        {/* <Link to='/'> */}
           <p className='navbar__logo'> conduit </p>
-        {/* </Link> */}
-        {/* <Navigation /> */}
         <ul className='navbar__ul'>
-          {nav.map((navItem: string, i) => <li className='navbar__li navbar__li_active' key={i}>{navItem}</li>)}
+          {nav.map(({text, link, id}) => (
+          <CustomLink key={text} to={link} >
+            <li className='navbar__li' key={id}>{text}</li>
+          </CustomLink>
+          ))}
         </ul>
       </nav>
     </header>

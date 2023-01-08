@@ -1,21 +1,19 @@
 import './App.scss';
-import Header from './components/header';
-import Footer from './components/footer';
+import LogPage from './pages/logPage';
 import LoginForm from './components/loginForm';
-
+import SignUpForm from './components/signUpForm';
+import HomePage from './pages/homePage';
+import {Routes, Route} from 'react-router-dom';
 
 const App = () => {
   return (
-    <div className="App">
-      <Header/>
-      <div className='main-page'>
-        <LoginForm/>
-        <div className='main-page__footer'>
-          <Footer/>
-        </div>
-      </div>
-      
-    </div>
+    <Routes>
+      <Route path='/' element={<LogPage/>}>
+        <Route index element={<LoginForm/>}/>
+        <Route path='/sign-up' element={<SignUpForm/>}/>
+        <Route path='/home' element={<HomePage/>}/>
+      </Route>
+    </Routes>
   );
 }
 
