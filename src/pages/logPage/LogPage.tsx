@@ -12,6 +12,7 @@ export const LogPage = () => {
           <Footer/>
         </div>
       </div>
+      
     </div>
   )
 }

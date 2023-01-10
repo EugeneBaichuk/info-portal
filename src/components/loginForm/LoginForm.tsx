@@ -16,7 +16,7 @@ export const LoginForm = () => {
       <div>
         <TextField fullWidth style={{margin:'0 0 1rem 0'}} id="outlined-basic" label="Password" variant="outlined" />
       </div>
-      <Button sx={{display: 'block', width: "100px", height: "50px", m:'0 0 0 auto'}} variant="contained" color="success">Log in</Button>
+      <Button sx={{display: 'block', width: "100px", height: "50px", m:'0 0 0 auto'}} variant="contained" color="success" disabled={true}>Log in</Button>
     </form>
   </article>);
 };
