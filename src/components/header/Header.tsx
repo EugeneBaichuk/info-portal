@@ -1,5 +1,4 @@
-import './header.scss'
-//import Navigation from './Navigation/Navigation';
+import styles from './header.module.scss'
 import { CustomLink } from '../customLink/CustomLink'
 
 export const Header = () => {
@@ -7,13 +6,13 @@ export const Header = () => {
   
 
   return (
-    <header className='header'>
-      <nav className='navbar'>
-          <p className='navbar__logo'> conduit </p>
-        <ul className='navbar__ul'>
+    <header className={styles.header}>
+      <nav className={styles.navbar}>
+          <p className={styles.navbar__logo}> conduit </p>
+        <ul className={styles.navbar__ul}>
           {nav.map(({text, link, id}) => (
           <CustomLink key={text} to={link} >
-            <li className='navbar__li' key={id}>{text}</li>
+            <li className={styles.navbar__li} key={id}>{text}</li>
           </CustomLink>
           ))}
         </ul>

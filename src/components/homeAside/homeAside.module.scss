@@ -1,0 +1,36 @@
+.homeAside {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 20%;
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &__text {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 1px 4px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+  }
+}

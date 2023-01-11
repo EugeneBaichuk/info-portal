@@ -1,15 +1,16 @@
+
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button'
-import './loginForm.scss';
+import styles from './loginForm.module.scss';
 
 export const LoginForm = () => {
   return (
-  <article className='login-form'>
-    <h1 className='login-form__headline'>Sign in</h1>
-    <div className='login-form__margin-bot'>
-      <a href="#" className='login-form__link'>Need an account?</a>
+  <article className={styles.loginForm}>
+    <h1 className={styles.loginForm__headline}>Sign in</h1>
+    <div className={styles.loginForm__marginBot}>
+      <a href="#" className={styles.loginForm__link}>Need an account?</a>
     </div>
-    <form className='login-form__form'>
+    <form className={styles.loginForm__form}>
       <div>
         <TextField fullWidth style={{margin:'0 0 1rem 0'}} id="outlined-basic" label="E-mail" variant="outlined" />
       </div>

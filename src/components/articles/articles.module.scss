@@ -1,0 +1,135 @@
+@import "../../vars";
+
+.articles {
+  display: flex;
+  flex-direction: column;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__infoBlock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__icon {
+    background-color: aquamarine;
+    border-radius: 50%;
+  }
+
+  &__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &__dateAndName {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+  }
+
+  &__nameAutor {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #5cb85c;
+
+    &:hover {
+      color: rgb(70, 136, 70);
+      text-decoration: underline;
+    }
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgb(184, 189, 184);
+    font-size: 0.8rem;
+  }
+
+  &__like {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 45px;
+    height: 30px;
+    border: 1px solid #5cb85c;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #5cb85c;
+    }
+
+    &:hover .heart * {
+      fill: white;
+    }
+
+    & p {
+      font-size: 14px;
+      color: #5cb85c;
+    }
+
+    &:hover p {
+      color: white;
+    }
+  }
+
+  &__textBlock {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  &__text {
+    color: rgb(184, 189, 184);
+  }
+
+  &__moreBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid $articleBreakpoint;
+    padding-bottom: 30px;
+  }
+
+  &__more {
+    font-size: 12px;
+    color: gray;
+  }
+
+  &__tags {
+    display: flex;
+    flex-direction: row;
+
+    & p {
+      border: 1px solid gray;
+      border-radius: 5px;
+      font-size: 12px;
+      padding: 0 5px;
+      margin: 0 5px;
+      cursor: pointer;
+      color: gray;
+    }
+  }
+}

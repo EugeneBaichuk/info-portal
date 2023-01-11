@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./article.module.scss";
+import styles from "./articles.module.scss";
 import { ReactComponent as Heart } from "../../assets/images/heart2.svg";
 
-export const Article: React.FC = () => {
+export const Articles: React.FC = () => {
   const articles = [
     {
       author: {
@@ -97,16 +97,16 @@ export const Article: React.FC = () => {
   return (
     <>
       {articles.map((item: any, index) => (
-        <div className={styles.wrapper} key={index}>
-          <div className={styles.articleBlock}>
-            <div className={styles.infoArticle}>
-              <div className={styles.infoArticleBlock}>
-                <div className={styles.iconArticle}>
-                  <img className={styles.imgArticle} src={item.author.image} />
+        <div className={styles.articles} key={index}>
+          <div className={styles.article}>
+            <div className={styles.article__info}>
+              <div className={styles.article__infoBlock}>
+                <div className={styles.article__icon}>
+                  <img className={styles.article__img} src={item.author.image} />
                 </div>
-                <div className={styles.dateAndNameArticle}>
-                  <div className={styles.nameAutor}>{item.author.username}</div>
-                  <div className={styles.dateArticle}>
+                <div className={styles.article__dateAndName}>
+                  <div className={styles.article__nameAutor}>{item.author.username}</div>
+                  <div className={styles.article__date}>
                     {new Date(item.updatedAt).toLocaleString("en", {
                       day: "numeric",
                       month: "long",
@@ -115,7 +115,7 @@ export const Article: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className={styles.likeArticle}>
+              <div className={styles.article__like}>
                 <Heart
                   width={15}
                   height={15}
@@ -125,13 +125,13 @@ export const Article: React.FC = () => {
                 <p>{item.favoritesCount}</p>
               </div>
             </div>
-            <div className={styles.article}>
-              <div className={styles.titleArticle}>{item.title}</div>
-              <div className={styles.textArticle}>{item.description}</div>
+            <div className={styles.article__textBlock}>
+              <div className={styles.article__title}>{item.title}</div>
+              <div className={styles.article__text}>{item.description}</div>
             </div>
-            <div className={styles.footerArticle}>
-              <div className={styles.footerReadMore}>Read more...</div>
-              <div className={styles.footerWords}>
+            <div className={styles.article__moreBlock}>
+              <div className={styles.article__more}>Read more...</div>
+              <div className={styles.article__tags}>
                 {item.tagList.map((item: string, index: number) => (
                   <p key={index}>{item}</p>
                 ))}
