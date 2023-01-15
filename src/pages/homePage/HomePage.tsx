@@ -1,4 +1,4 @@
-import { Articles } from "../../components/articles/Articles";
+import { GlobalArticlesList } from "../../components/globalArticlesList/GlobalArticlesList";
 import HomepageTitle from "../../components/homeTitle";
 import HomeAside from "../../components/homeAside";
 import HomeTabs from "../../components/homeTabs";
@@ -13,13 +13,12 @@ export const HomePage = () => {
       <div className={styles.home}>
         <div className={styles.home__content}>
           <div className={styles.home__main}>
-            <HomeTabs/>
-            <Articles/>
-            <PaginationOutlined/>
+            <HomeTabs />
+            <GlobalArticlesList />
+            <PaginationOutlined />
           </div>
           <HomeAside />
         </div>
-        
       </div>
     </div>
   );

@@ -1,29 +1,23 @@
 import {FC, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getData, showData } from "../../slice/getDataSlice";
-import axios from "axios";
+import { showArticles, getArticles } from "../../slice/getDataSlice";
 import styles from "./articles.module.scss";
 import { ReactComponent as Heart } from "../../assets/images/heart2.svg";
 
-export const Articles: FC = () => {
+export const GlobalArticlesList: FC = () => {
   const dispatch = useDispatch();
-  const articlesArr = useSelector(showData);
-  const loaded = articlesArr[0];
+  const {data: articles, status, error} = useSelector(showArticles);
   const color = "#5cb85c";
   
   useEffect(() => {
-    const getResource = async (headlines: string) => {
-      const res = await axios.get(headlines);
-      console.log(res.data.articles);
-      dispatch(getData(res.data.articles))
-      return res;
-    }
-    getResource('https://api.realworld.io/api/articles?limit=10&offset=0');
-  });
+    dispatch(getArticles());
+  }, [dispatch]);
 
   return (
     <>
-      {loaded && articlesArr.map((item: any, index: number) => (
+      {status === "loading" && "Loading...."}
+      {status === "rejected" && error.message}
+      {status === "resolved" && articles.map((item: any, index: number) => (
           <div className={styles.articles} key={index}>
             <div className={styles.article}>
               <div className={styles.article__info}>
