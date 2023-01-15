@@ -3,12 +3,22 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface StyledTabProps {
   label: string;
+  to: string;
 }
 
 export const HomeTabs = () => {
+  const navigate = useNavigate();
+  const [selection, setSelection] = useState("/home");
+
+  const handleChange = (_e, newValue: string) => {
+    setSelection(newValue);
+    navigate(`${newValue}`);
+  }
+
   const AntTabs = styled(Tabs)({
     borderBottom: "1px solid #e8e8e8",
     "& .MuiTabs-indicator": {
@@ -51,18 +61,14 @@ export const HomeTabs = () => {
       backgroundColor: "#5cb85c",
     },
   }));
-  const [value, setValue] = useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
 
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ bgcolor: "#fff" }}>
-        <AntTabs value={value} onChange={handleChange} aria-label="ant example">
-          <AntTab label="Your Feed" />
-          <AntTab label="Global Feed" />
+        <AntTabs value={selection} onChange={handleChange}>
+            <AntTab value={'/home/user'} label="Your Feed"/>
+            <AntTab value={"/home"} label="Global Feed"/>
         </AntTabs>
       </Box>
     </Box>

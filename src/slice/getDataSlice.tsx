@@ -3,8 +3,8 @@ import api from "../apis/conduitAPI"
 
 export const getArticles = createAsyncThunk("getData/getArticles", async (_, {rejectWithValue}) => {
     try {
-        const res = await api.get('/articles?limit=10&offset=0');
-        return res.data.articles;
+        const {data} = await api.get('/articles?limit=10&offset=0');
+        return data.articles;
     } catch (error) {
         return rejectWithValue(error);
     }
@@ -12,13 +12,12 @@ export const getArticles = createAsyncThunk("getData/getArticles", async (_, {re
 
 export const getTags = createAsyncThunk("getData/getTags", async (_, {rejectWithValue}) => {
     try {
-        const res = await api.get('tags');
-        const tags = res.data.tags;
-        return tags;
+        const {data} = await api.get('tags');
+        return data.tags;
     } catch (error) {
         return rejectWithValue(error);
     }
-} );
+});
 
 const getDataSlice = createSlice({
     name: "getData",
@@ -39,31 +38,32 @@ const getDataSlice = createSlice({
             state.articles = action.payload
         }
     },
-    extraReducers: {
-        [getArticles.pending]: (state) => {
+    extraReducers: (builder) => {
+        builder
+        .addCase(getArticles.pending, (state) => {
             state.articles.status = "loading";
             state.articles.error = null;
-        },
-        [getArticles.fulfilled]: (state, {payload}) => {
+        })
+        .addCase(getArticles.fulfilled, (state, {payload: articles}) => {
             state.articles.status = "resolved";
-            state.articles.data = payload;
-        },
-        [getArticles.rejected]: (state, {payload}) => {
+            state.articles.data = articles;
+        })
+        .addCase(getArticles.rejected, (state, {payload: error}) => {
             state.articles.status = "rejected";
-            state.articles.error = payload;
-        },
-        [getTags.pending]: (state) => {
+            state.articles.error = error;
+        })
+        .addCase(getTags.pending, (state) => {
             state.tags.status = "loading";
             state.tags.error = null;
-        },
-        [getTags.fulfilled]: (state, {payload}) => {
+        })
+        .addCase(getTags.fulfilled, (state, {payload: tags}) => {
             state.tags.status = "resolved";
-            state.tags.data = payload;
-        },
-        [getTags.rejected]: (state, {payload}) => {
+            state.tags.data = tags;
+        })
+        .addCase(getTags.rejected, (state, {payload: error}) => {
             state.tags.status = "rejected";
-            state.tags.error = payload;
-        },
+            state.tags.error = error;
+        })
     }
 })
 

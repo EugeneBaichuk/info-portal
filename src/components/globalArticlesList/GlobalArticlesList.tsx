@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showArticles, getArticles } from "../../slice/getDataSlice";
 import styles from "./articles.module.scss";
 import { ReactComponent as Heart } from "../../assets/images/heart2.svg";
+import PaginationOutlined from "../../components/pagination";
 
 export const GlobalArticlesList: FC = () => {
   const dispatch = useDispatch();
@@ -61,6 +62,7 @@ export const GlobalArticlesList: FC = () => {
             </div>
           </div>
         ))}
+      <PaginationOutlined/>
     </>
   );
 };

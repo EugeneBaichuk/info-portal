@@ -1,8 +1,9 @@
 import { GlobalArticlesList } from "../../components/globalArticlesList/GlobalArticlesList";
+import {Outlet} from 'react-router-dom';
 import HomepageTitle from "../../components/homeTitle";
 import HomeAside from "../../components/homeAside";
 import HomeTabs from "../../components/homeTabs";
-import PaginationOutlined from "../../components/pagination";
+
 
 import styles from "./home.module.scss";
 
@@ -14,8 +15,7 @@ export const HomePage = () => {
         <div className={styles.home__content}>
           <div className={styles.home__main}>
             <HomeTabs />
-            <GlobalArticlesList />
-            <PaginationOutlined />
+            <Outlet/>
           </div>
           <HomeAside />
         </div>
